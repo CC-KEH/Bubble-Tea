@@ -2,23 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class BottomNav extends StatelessWidget {
-  const BottomNav({super.key});
-
+  void Function(int)? onTabChange;
+  BottomNav({super.key,required this.onTabChange});
   @override
   Widget build(BuildContext context) {
-    return const GNav(
-      tabs: [
-        //Shop
-        GButton(
-          icon: Icons.shop,
-          text: 'Shop',
-        ),
-        //Cart
-        GButton(
-          icon: Icons.shopping_bag,
-          text: 'Cart',
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 25.0),
+      child: GNav(
+        onTabChange: (value)=> onTabChange!(value),
+        mainAxisAlignment: MainAxisAlignment.center,
+        activeColor: Colors.white,
+        color: Colors.brown,
+        tabActiveBorder: Border.all(color: Colors.white),
+        gap: 8,
+        tabs: [
+          //Shop
+          GButton(
+            icon: Icons.shop,
+            text: 'Shop',
+          ),
+          //Cart
+          GButton(
+            icon: Icons.shopping_bag,
+            text: 'Cart',
+          ),
+        ],
+      ),
     );
   }
 }
