@@ -18,7 +18,7 @@ class _ShopPageState extends State<ShopPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => OrderPage(),
+        builder: (context) => OrderPage(drink: drink),
       ),
     );
   }
@@ -46,6 +46,7 @@ class _ShopPageState extends State<ShopPage> {
                       return DrinkTile(
                         drink: drink,
                         onTap: () => goToOrderPage(drink),
+                        trailing: const Icon(Icons.forward),
                       );
                       //Return the drink in a decorated manner
                     }),

@@ -4,11 +4,13 @@ import '../models/Drink.dart';
 
 class DrinkTile extends StatelessWidget {
   final Drink drink;
+  final Widget trailing;
   void Function()? onTap;
   DrinkTile({
     super.key,
     required this.drink,
     required this.onTap,
+    required this.trailing,
   });
 
   @override
@@ -20,7 +22,7 @@ class DrinkTile extends StatelessWidget {
           title: Text(drink.name),
           subtitle: Text(drink.price),
           leading: Image.asset(drink.imagePath),
-          trailing: const Icon(Icons.forward),
+          trailing: trailing,
         ),
       ),
       SizedBox(
