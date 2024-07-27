@@ -1,5 +1,6 @@
 import 'package:boba_tea/CartPage.dart';
 import 'package:boba_tea/ShopPage.dart';
+import 'package:boba_tea/about.dart';
 import 'package:flutter/material.dart';
 
 import 'components/bottom_nav_bar.dart';
@@ -20,6 +21,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<Widget> _pages = [
+    // HomePage
+    const About(),
     //Shop page
     const ShopPage(),
     //Cart page
@@ -29,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffe3cb),
+      backgroundColor: const Color(0xfff2eadd),
       bottomNavigationBar: BottomNav(
         onTabChange: (index) => navigateBottomNavbar(index),
       ),

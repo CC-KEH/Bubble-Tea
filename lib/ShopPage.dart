@@ -34,9 +34,10 @@ class _ShopPageState extends State<ShopPage> {
               // Heading
               const Text(
                 'Bubble Tea Shop',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 30,color: Colors.brown,fontWeight: FontWeight.bold),
               ),
               // List of drinks for sale
+              const SizedBox(height: 50,),
               Expanded(
                 child: ListView.builder(
                     itemCount: value.shop.length,

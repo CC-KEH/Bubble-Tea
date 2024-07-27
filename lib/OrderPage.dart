@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:boba_tea/models/Drink.dart';
 import 'package:boba_tea/models/Shop.dart';
 import 'package:flutter/material.dart';
@@ -52,12 +54,19 @@ class _OrderPageState extends State<OrderPage> {
       ),
     );
   }
+  Map<String, Color> nameToColors = {
+    'Chocci Milk Tea': const Color(0xFF9a6c52),
+    'Cement Milk Tea': const Color(0xFFa9b4d2),
+    'Gold bubble Tea': const Color(0xFFdf8f2c),  // Colors.gold does not exist, using Colors.yellow as a close alternative
+    'Royal bubble Tea': const Color(0xFFff94d8),
+  };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.drink.name),
+        backgroundColor: nameToColors[widget.drink.name],
       ),
       backgroundColor: const Color(0xffffe3cb),
       body: Padding(
@@ -92,6 +101,7 @@ class _OrderPageState extends State<OrderPage> {
                         Slider(
                             value: sweetValue,
                             label: sweetValue.toString(),
+                            activeColor: nameToColors[widget.drink.name],
                             divisions: 4,
                             onChanged: (value) => customizeSweet(value)),
                       ],
@@ -103,6 +113,7 @@ class _OrderPageState extends State<OrderPage> {
                         Slider(
                             value: iceValue,
                             label: iceValue.toString(),
+                            activeColor: nameToColors[widget.drink.name],
                             divisions: 4,
                             onChanged: (value) => customizeIce(value)),
                       ],
@@ -114,6 +125,7 @@ class _OrderPageState extends State<OrderPage> {
                         Slider(
                             value: pearlsValue,
                             label: pearlsValue.toString(),
+                            activeColor: nameToColors[widget.drink.name],
                             divisions: 4,
                             onChanged: (value) => customizePearls(value)),
                       ],
@@ -129,7 +141,7 @@ class _OrderPageState extends State<OrderPage> {
                       'Add to cart',
                       style: TextStyle(color: Colors.white),
                     ),
-                    color: Colors.brown,
+                    color: nameToColors[widget.drink.name],
                     onPressed: addToCart)
               ],
             ),

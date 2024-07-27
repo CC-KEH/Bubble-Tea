@@ -15,7 +15,12 @@ class BottomNav extends StatelessWidget {
         color: Colors.brown,
         tabActiveBorder: Border.all(color: Colors.white),
         gap: 8,
-        tabs: [
+        tabs: const [
+          //About
+          GButton(
+            icon: Icons.home,
+            text: 'About',
+          ),
           //Shop
           GButton(
             icon: Icons.shop,
